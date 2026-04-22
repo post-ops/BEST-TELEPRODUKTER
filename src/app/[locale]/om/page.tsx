@@ -8,17 +8,23 @@ export const metadata = {
     "Best Teleprodukter har siden 1979 levert tilkallings- og alarmsystemer for helsesektoren. Del av Best Group.",
 };
 
-// Only two verified milestones: founding year and present-day market position.
+// Verified milestones from bestgroup.no: founding year, current market
+// position, and global presence (Europa, USA, Asia).
 const TIMELINE = [
   {
     year: "1979",
     title: "Grunnleggelse",
-    text: "BEST etableres og starter utvikling av kommunikasjonssystemer for helsesektoren i Norge.",
+    text: "BEST etableres og starter utvikling av kommunikasjonssystemer for helsesektoren.",
   },
   {
     year: "I dag",
-    title: "Nordisk markedsleder",
-    text: "BEST er markedsledende i Skandinavia innen pasientvarsling og tilkallingssystemer, med kontorer i Larvik, Høvik, Trondheim og Göteborg.",
+    title: "Skandinavisk markedsleder",
+    text: "Markedsledende innen tilkallingssystemer og overfallsalarmer for helsesektoren, med BEST Center i Göteborg og norske kontorer i Larvik, Høvik og Trondheim.",
+  },
+  {
+    year: "Globalt",
+    title: "Tilstede i Europa, USA og Asia",
+    text: "Gjennom datterselskaper og forhandlere leverer BEST helhetlige kommunikasjonsløsninger til helseinstitusjoner verden rundt.",
   },
 ];
 
@@ -61,8 +67,10 @@ export default async function AboutPage({
             Pasientvarsling som gir helsepersonell tid til det som teller.
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-ink-muted">
-            Best Teleprodukter har siden 1979 bygget kommunikasjonsteknologi
-            for helsesektoren — med hovedkontor i Larvik, og er en del av{" "}
+            Best Teleprodukter har siden 1979 bygget intelligente alarm- og
+            kommunikasjonsløsninger for helse- og omsorgssektoren. Vi leverer
+            maskinvare, programvare og mobilapper som helhetsleverandør, med
+            hovedkontor i Larvik og er en del av{" "}
             <a
               className="underline decoration-cyan-500 underline-offset-4"
               href="https://www.bestgroup.no"
@@ -70,8 +78,8 @@ export default async function AboutPage({
               rel="noopener noreferrer"
             >
               Best Group
-            </a>
-            .
+            </a>{" "}
+            (BEST Center, Göteborg).
           </p>
         </Container>
       </section>

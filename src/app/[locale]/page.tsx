@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Hero } from "@/components/sections/Hero";
 import { TrustBar } from "@/components/sections/TrustBar";
 import { LiveOperations } from "@/components/sections/LiveOperations";
+import { WorkflowSection } from "@/components/sections/WorkflowSection";
 import { ProductLines } from "@/components/sections/ProductLines";
 import { SolutionsTeaser } from "@/components/sections/SolutionsTeaser";
 import { FeaturedCaseStudies } from "@/components/sections/FeaturedCaseStudies";
@@ -20,10 +21,11 @@ export default async function HomePage({
     <>
       <Hero />
       <TrustBar />
-      <LiveOperations />
+      <WorkflowSection />
       <ProductLines />
       <SolutionsTeaser />
       <FeaturedCaseStudies />
+      <LiveOperations />
       <ProductRecommender />
       <ContactCTA />
     </>

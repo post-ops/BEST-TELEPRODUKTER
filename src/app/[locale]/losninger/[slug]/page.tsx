@@ -36,6 +36,10 @@ type Solution = {
   }>;
 };
 
+// Benefit descriptions are taken from BEST's own product language on bestgroup.no:
+// "smarte løsninger innen kommunikasjon, integrasjon og effektivisering",
+// "brukervennlig system for tilkalling, assistanse og panikkalarm",
+// "intelligent alarmsystem med unike funksjoner".
 const FALLBACK_SOLUTIONS: Record<string, Solution> = {
   sykehus: {
     _id: "sykehus",
@@ -43,10 +47,26 @@ const FALLBACK_SOLUTIONS: Record<string, Solution> = {
     segment: "hospital",
     title: "Løsninger for sykehus og psykiatri",
     keyBenefits: [
-      { title: "Skalerbar arkitektur", description: "Fra enkeltavdelinger til fullstendige universitetssykehus." },
-      { title: "EPJ-integrasjon", description: "Sømløs integrasjon med DIPS, Epic, Cambio m.fl." },
-      { title: "Mobil alarmhåndtering", description: "Alle alarmer direkte til sykepleiers smarttelefon." },
-      { title: "Åpne API-er", description: "Bygg skreddersydde integrasjoner og arbeidsflyt." },
+      {
+        title: "Kommunikasjon",
+        description:
+          "Smarte løsninger innen tilkalling og kommunikasjon tilpasset sykehusdrift.",
+      },
+      {
+        title: "Integrasjon",
+        description:
+          "BEST-plattformen samler alarm, oppgaver og planlegging i ett sømløst system.",
+      },
+      {
+        title: "Effektivisering",
+        description:
+          "Mindre tid på dokumentasjon og informasjonsoverføring — mer tid til pasientbehandling.",
+      },
+      {
+        title: "Mobil alarmhåndtering",
+        description:
+          "Sykepleiere mottar og behandler alarmer direkte via smarttelefonen.",
+      },
     ],
   },
   helseinstitusjon: {
@@ -55,10 +75,26 @@ const FALLBACK_SOLUTIONS: Record<string, Solution> = {
     segment: "health-institution",
     title: "Løsninger for helseinstitusjoner",
     keyBenefits: [
-      { title: "Brukervennlige alarmsystemer", description: "Stor og tydelig knapp, designet for pasienter i alle aldre." },
-      { title: "Overfallsalarm", description: "Beskytter ansatte i krevende arbeidsmiljøer." },
-      { title: "Nødkall", description: "Rask tilkalling med tydelig prioritet og posisjon." },
-      { title: "Fleksibel montering", description: "Både kablet og trådløst — velg det som passer bygget." },
+      {
+        title: "Tilkalling og assistanse",
+        description:
+          "Brukervennlig system for tilkalling og assistansebehov i det daglige.",
+      },
+      {
+        title: "Panikkalarm",
+        description:
+          "Beskytter ansatte i krevende arbeidsmiljøer, med tydelig prioritet.",
+      },
+      {
+        title: "Mobil alarmhåndtering",
+        description:
+          "Smarttelefonen blir en komplett alarmterminal for pleiepersonell.",
+      },
+      {
+        title: "Pasientunderholdning",
+        description:
+          "BESTinfotainment® gir pasienter WiFi, TV, radio, film, spill, musikk og lydbøker ved sengekanten.",
+      },
     ],
   },
   sykehjem: {
@@ -67,10 +103,26 @@ const FALLBACK_SOLUTIONS: Record<string, Solution> = {
     segment: "nursing-home",
     title: "Løsninger for sykehjem og omsorgsboliger",
     keyBenefits: [
-      { title: "Trådløse enheter", description: "Enkel installasjon og minimal inngripen i bygget." },
-      { title: "NFC-tilstedeværelse", description: "Ansatte registrerer tilstedeværelse automatisk." },
-      { title: "Nøkkelfri romtilgang", description: "Smartlåser integrert med alarmsystemet." },
-      { title: "Analytics", description: "Se trender i alarmvolum, responstid og belastning." },
+      {
+        title: "Trådløse anropsenheter",
+        description:
+          "Batteridrevne anropsenheter for fleksibel plassering — ingen graving i vegger.",
+      },
+      {
+        title: "NFC-tilstedeværelse",
+        description:
+          "Ansatte registrerer tilstedeværelse automatisk gjennom smarttelefonen.",
+      },
+      {
+        title: "Nøkkelfri tilgang",
+        description:
+          "Leilighetstilgang integrert med alarmsystemet for økt sikkerhet.",
+      },
+      {
+        title: "Oversikt og statistikk",
+        description:
+          "Programvare for drift og statistikk gir ledere full kontroll over virksomheten.",
+      },
     ],
   },
 };

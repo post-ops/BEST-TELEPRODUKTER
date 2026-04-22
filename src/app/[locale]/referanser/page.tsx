@@ -18,7 +18,9 @@ type CaseItem = {
   publishedAt?: string;
 };
 
-const FALLBACK_CASES: CaseItem[] = [
+type CaseFallback = CaseItem & { fallbackImage?: string };
+
+const FALLBACK_CASES: CaseFallback[] = [
   {
     _id: "dnu",
     slug: "dnu-aarhus",
@@ -26,7 +28,9 @@ const FALLBACK_CASES: CaseItem[] = [
     location: "Aarhus",
     country: "DK",
     segment: "hospital",
-    title: "Implementering av BEST IQ ved et av Nordens største sykehusprosjekter",
+    title:
+      "Implementering av BEST-løsninger ved et av Nordens største sykehusprosjekter",
+    fallbackImage: "/images/bestgroup/dnu_referens.jpg",
   },
   {
     _id: "nks",
@@ -36,6 +40,7 @@ const FALLBACK_CASES: CaseItem[] = [
     country: "SE",
     segment: "hospital",
     title: "Komplett tilkallings- og overfallsalarmløsning",
+    fallbackImage: "/images/bestgroup/nks_referens.jpg",
   },
   {
     _id: "sus",
@@ -45,6 +50,7 @@ const FALLBACK_CASES: CaseItem[] = [
     country: "SE",
     segment: "hospital",
     title: "Leveranse av kommunikasjonsløsninger for moderne sykehusdrift",
+    fallbackImage: "/images/bestgroup/sus_referens.jpg",
   },
   {
     _id: "skaraborg",
@@ -53,7 +59,30 @@ const FALLBACK_CASES: CaseItem[] = [
     location: "Skövde",
     country: "SE",
     segment: "psychiatry",
-    title: "BESTproactive på psykiatrisk avdeling — styrket sikkerhet for personale og pasienter",
+    title: "BEST-løsninger for sykehusdrift og psykiatrisk avdeling",
+    fallbackImage: "/images/bestgroup/sss_referens.jpg",
+  },
+  {
+    _id: "carlanderska",
+    slug: "carlanderska",
+    client: "Carlanderska",
+    location: "Göteborg",
+    country: "SE",
+    segment: "nursing-home",
+    title:
+      "BEST IQ® kallelsessystem med smarttelefon-alarmhåndtering i moderne eldreboliger",
+    fallbackImage: "/images/bestgroup/best_news_carlanderska.jpg",
+  },
+  {
+    _id: "nyhaga",
+    slug: "nyhaga",
+    client: "Nyhaga eldreboliger",
+    location: "Vänersborg",
+    country: "SE",
+    segment: "nursing-home",
+    title:
+      "Moderne alarmsystem i eldreboliger — BESTsenior® med trådløse enheter",
+    fallbackImage: "/images/bestgroup/best_news_nyhaga.jpg",
   },
 ];
 
@@ -112,8 +141,13 @@ export default async function CasesPage({
                     alt={c.client}
                     width={600}
                     height={360}
-                    className="h-full w-full object-cover opacity-70 transition-transform group-hover:scale-105"
+                    className="h-full w-full object-cover opacity-80 transition-transform group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    fallback={
+                      "fallbackImage" in c && (c as CaseFallback).fallbackImage
+                        ? (c as CaseFallback).fallbackImage
+                        : undefined
+                    }
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/60 to-transparent" aria-hidden />
                 </div>
