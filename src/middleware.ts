@@ -4,6 +4,15 @@ import { routing } from "./i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  // Exclude Next.js internals, Sanity Studio, API routes, and static assets
-  matcher: "/((?!api|studio|_next|_vercel|.*\\..*).*)",
+  // Match every path except:
+  //  - Next.js internals (_next, _vercel)
+  //  - Static assets (anything with a dot in it)
+  //  - API routes (/api/*)
+  //  - Sanity Studio (/studio/*)
+  // The root `/` must be explicitly listed so Vercel edge doesn't skip it.
+  matcher: [
+    "/",
+    "/(no|en)/:path*",
+    "/((?!_next|_vercel|api|studio|.*\\..*).*)",
+  ],
 };
