@@ -159,7 +159,7 @@ export default async function SolutionPage({
 
   return (
     <>
-      <section className="relative overflow-hidden gradient-hero py-20">
+      <section className="relative overflow-hidden gradient-hero py-20 pt-32">
         <div className="absolute inset-0 grid-bg opacity-40" aria-hidden />
         <Container className="relative grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
           <div>

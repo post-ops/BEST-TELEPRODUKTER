@@ -44,6 +44,10 @@ export const routing = defineRouting({
       no: "/kontakt",
       en: "/contact",
     },
+    "/sikkerhet": {
+      no: "/sikkerhet",
+      en: "/security",
+    },
   },
 });
 

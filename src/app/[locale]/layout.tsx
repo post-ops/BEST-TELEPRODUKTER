@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { Header } from "@/components/navigation/Header";
 import { Footer } from "@/components/navigation/Footer";
+import { CookieBanner } from "@/components/consent/CookieBanner";
+import { PlausibleScript } from "@/components/analytics/PlausibleScript";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -74,6 +76,8 @@ export default async function LocaleLayout({
         </main>
         <Footer />
       </div>
+      <CookieBanner />
+      <PlausibleScript />
     </NextIntlClientProvider>
   );
 }

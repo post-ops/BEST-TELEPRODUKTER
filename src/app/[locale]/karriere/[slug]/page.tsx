@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { LinkButton } from "@/components/ui/LinkButton";
 import { PortableText } from "@/components/sanity/PortableText";
 import { CheckIcon, MailIcon, MapPinIcon } from "@/components/ui/Icon";
+import { FALLBACK_JOBS } from "@/data/fallback-jobs";
 
 type Job = {
   _id: string;
@@ -22,13 +23,16 @@ type Job = {
 };
 
 export async function generateStaticParams() {
-  const slugs =
+  const sanitySlugs =
     (await sanityFetch<string[]>({
       query: slugsByTypeQuery,
       params: { type: "jobOpening" },
       tags: ["jobOpening"],
     })) ?? [];
-  return slugs.map((slug) => ({ slug }));
+  const fallbackSlugs = FALLBACK_JOBS.map((j) => j.slug);
+  return Array.from(new Set([...sanitySlugs, ...fallbackSlugs])).map((slug) => ({
+    slug,
+  }));
 }
 
 export default async function JobPage({
@@ -44,44 +48,61 @@ export default async function JobPage({
     params: { locale, slug },
     tags: ["jobOpening"],
   });
+  const fallback = FALLBACK_JOBS.find((j) => j.slug === slug);
 
-  if (!job) notFound();
+  if (!job && !fallback) notFound();
+
+  const title = job?.title ?? fallback!.title;
+  const location = job?.location ?? fallback!.location;
+  const department = job?.department ?? fallback!.department;
+  const employmentType = job?.employmentType ?? fallback!.employmentType;
+  const summary = fallback?.summary;
+  const applicationEmail = job?.applicationEmail ?? "post@bestgroup.no";
+  const applicationDeadline = job?.applicationDeadline;
 
   return (
-    <article className="py-20">
+    <article className="py-20 pt-32">
       <Container className="max-w-3xl">
         <header>
           <h1 className="text-4xl font-bold text-navy-900 md:text-5xl">
-            {job.title}
+            {title}
           </h1>
           <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-ink-muted">
             <span className="inline-flex items-center gap-1.5">
               <MapPinIcon size={14} />
-              {job.location}
+              {location}
             </span>
-            {job.department && <span>· {job.department}</span>}
-            {job.employmentType && <span>· {job.employmentType}</span>}
-            {job.applicationDeadline && (
+            {department && <span>· {department}</span>}
+            {employmentType && <span>· {employmentType}</span>}
+            {applicationDeadline && (
               <span>
-                · Frist {new Date(job.applicationDeadline).toLocaleDateString(locale)}
+                · Frist{" "}
+                {new Date(applicationDeadline).toLocaleDateString(locale)}
               </span>
             )}
           </div>
         </header>
 
-        {job.description ? (
-          <div className="prose-invert mt-10 max-w-none">
+        {job?.description ? (
+          <div className="mt-10">
             <PortableText value={job.description} />
           </div>
+        ) : summary ? (
+          <p className="mt-10 text-lg leading-relaxed text-ink-muted">
+            {summary}
+          </p>
         ) : null}
 
-        {job.requirements && job.requirements.length > 0 && (
+        {job?.requirements && job.requirements.length > 0 && (
           <section className="mt-10">
             <h2 className="text-xl font-bold text-navy-900">Vi ser etter</h2>
             <ul className="mt-4 space-y-2">
               {job.requirements.map((r, i) => (
                 <li key={i} className="flex gap-3 text-ink-muted">
-                  <CheckIcon size={20} className="mt-0.5 shrink-0 text-cyan-600" />
+                  <CheckIcon
+                    size={20}
+                    className="mt-0.5 shrink-0 text-cyan-600"
+                  />
                   {r}
                 </li>
               ))}
@@ -89,13 +110,16 @@ export default async function JobPage({
           </section>
         )}
 
-        {job.benefits && job.benefits.length > 0 && (
+        {job?.benefits && job.benefits.length > 0 && (
           <section className="mt-10">
             <h2 className="text-xl font-bold text-navy-900">Vi tilbyr</h2>
             <ul className="mt-4 space-y-2">
               {job.benefits.map((b, i) => (
                 <li key={i} className="flex gap-3 text-ink-muted">
-                  <CheckIcon size={20} className="mt-0.5 shrink-0 text-cyan-600" />
+                  <CheckIcon
+                    size={20}
+                    className="mt-0.5 shrink-0 text-cyan-600"
+                  />
                   {b}
                 </li>
               ))}
@@ -109,17 +133,19 @@ export default async function JobPage({
             Send søknad, CV og attester til{" "}
             <a
               className="font-semibold text-navy-900 hover:text-cyan-700"
-              href={`mailto:${job.applicationEmail ?? "karriere@bestteleprodukter.no"}`}
+              href={`mailto:${applicationEmail}`}
             >
-              {job.applicationEmail ?? "karriere@bestteleprodukter.no"}
+              {applicationEmail}
             </a>
           </p>
           <div className="mt-6">
             <LinkButton
               external
-              href={`mailto:${job.applicationEmail ?? "karriere@bestteleprodukter.no"}?subject=${encodeURIComponent(
-                `Søknad: ${job.title}`,
-              )}` as string}
+              href={
+                `mailto:${applicationEmail}?subject=${encodeURIComponent(
+                  `Søknad: ${title}`,
+                )}` as string
+              }
             >
               <MailIcon size={16} />
               Send søknad

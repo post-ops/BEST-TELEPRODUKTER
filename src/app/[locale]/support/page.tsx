@@ -14,19 +14,27 @@ export const metadata = {
 const FAQS = [
   {
     q: "Hvordan får jeg hjelp ved en driftsforstyrrelse?",
-    a: "Kunder med serviceavtale kan kontakte vårt driftsteam direkte. Ta kontakt med oss for å avtale hvilken support som passer for din institusjon.",
+    a: "Kunder med serviceavtale har direkte kontakt med vårt driftsteam. Reaksjonstid avtales i hver enkelt serviceavtale basert på kritikalitet (f.eks. sykehus vs sykehjem). Ta kontakt så gjennomgår vi hvilken SLA som passer for din institusjon.",
   },
   {
-    q: "Kan BEST-løsningene integreres med vårt journalsystem?",
-    a: "Våre systemer er bygget med tanke på integrasjon mot eksisterende infrastruktur. Vi gjennomgår dine behov og avklarer integrasjonsmuligheter som del av prosjektplanleggingen.",
+    q: "Kan BEST-løsningene integreres med vårt journalsystem (EPJ)?",
+    a: "BEST-plattformen er bygget med åpne grensesnitt for integrasjon mot fagsystemer, PAS/EPJ, identitetssystemer og tilgangskontroll. Konkrete integrasjonspunkter og leverandører avklares som en del av forprosjektet.",
   },
   {
     q: "Tilbyr dere opplæring for helsepersonell?",
-    a: "Ja — opplæring er en naturlig del av innføringen hos nye kunder. Vi tilpasser formen etter institusjonens behov.",
+    a: "Ja. Opplæring er en integrert del av innføringen og inkluderer både fysisk kurs for superbrukere og digitale ressurser for bredden. Rullerende opplæring for nyansatte kan avtales som del av driftsavtalen.",
   },
   {
     q: "Hvordan ivaretar dere personvern og informasjonssikkerhet?",
-    a: "Løsningene er utviklet med helsesektorens krav til personvern og sikkerhet som premiss. Ta kontakt for detaljert teknisk dokumentasjon.",
+    a: "Vi behandler sensitive helseopplysninger etter GDPR og norske krav. Data krypteres i ro og transport, og rollebasert tilgangskontroll sikrer at ansatte kun ser det de trenger. Se egen side om sikkerhet og personvern.",
+  },
+  {
+    q: "Kan vi skalere løsningen videre etter innføring?",
+    a: "Ja. BEST-plattformen er modulbasert. Typiske utvidelser er nye avdelinger, flere enheter, eller nye moduler (f.eks. BESTinfotainment eller BESTcritical response). Vi hjelper med plan for trinnvis innføring.",
+  },
+  {
+    q: "Hva skjer om BEST legges ned eller kjøpes opp?",
+    a: "BEST er en etablert del av Best Group, som har drevet siden 1979 og er nordisk markedsleder i sitt segment. Plattformen bygger på åpne teknologier slik at kundens investering er beskyttet mot leverandørlås.",
   },
 ];
 
@@ -40,7 +48,7 @@ export default async function SupportPage({
 
   return (
     <>
-      <section className="border-b border-navy-900/5 bg-paper-alt py-20">
+      <section className="border-b border-navy-900/5 bg-paper-alt py-20 pt-32">
         <Container>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-cyan-700">
             <span className="h-1 w-6 rounded-full bg-cyan-500" />

@@ -96,7 +96,7 @@ export default async function ProductsPage({
 
   return (
     <>
-      <section className="border-b border-navy-900/5 bg-paper-alt py-20">
+      <section className="border-b border-navy-900/5 bg-paper-alt py-20 pt-32">
         <Container>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-cyan-700">
             <span className="h-1 w-6 rounded-full bg-cyan-500" />

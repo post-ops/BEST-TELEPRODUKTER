@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Link } from "@/i18n/routing";
 import { ArrowRightIcon, MapPinIcon } from "@/components/ui/Icon";
+import { FALLBACK_JOBS } from "@/data/fallback-jobs";
 
 type Job = {
   _id: string;
@@ -14,6 +15,7 @@ type Job = {
   department?: string;
   employmentType?: string;
   applicationDeadline?: string;
+  summary?: string;
 };
 
 export const metadata = {
@@ -30,16 +32,30 @@ export default async function CareersPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const jobs =
+  const sanityJobs =
     (await sanityFetch<Job[]>({
       query: activeJobsQuery,
       params: { locale },
       tags: ["jobOpening"],
     })) ?? [];
 
+  // Fall back to example postings when Sanity has none yet.
+  const usingFallback = sanityJobs.length === 0;
+  const jobs: Job[] = usingFallback
+    ? FALLBACK_JOBS.map((j) => ({
+        _id: j.slug,
+        slug: j.slug,
+        title: j.title,
+        location: j.location,
+        department: j.department,
+        employmentType: j.employmentType,
+        summary: j.summary,
+      }))
+    : sanityJobs;
+
   return (
     <>
-      <section className="border-b border-navy-900/5 bg-paper-alt py-20">
+      <section className="border-b border-navy-900/5 bg-paper-alt py-20 pt-32">
         <Container>
           <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-cyan-700">
             <span className="h-1 w-6 rounded-full bg-cyan-500" />
@@ -72,10 +88,13 @@ export default async function CareersPage({
               {jobs.map((j) => (
                 <li key={j._id}>
                   <Link
-                    href={{ pathname: "/karriere/[slug]", params: { slug: j.slug } }}
+                    href={{
+                      pathname: "/karriere/[slug]",
+                      params: { slug: j.slug },
+                    }}
                     className="group flex items-center justify-between gap-4 p-6 transition-colors hover:bg-paper-alt md:p-8"
                   >
-                    <div>
+                    <div className="flex-1">
                       <h3 className="text-lg font-bold text-navy-900 md:text-xl">
                         {j.title}
                       </h3>
@@ -87,6 +106,11 @@ export default async function CareersPage({
                         {j.department && <span>· {j.department}</span>}
                         {j.employmentType && <span>· {j.employmentType}</span>}
                       </div>
+                      {j.summary && (
+                        <p className="mt-3 max-w-2xl text-sm text-ink-muted">
+                          {j.summary}
+                        </p>
+                      )}
                     </div>
                     <ArrowRightIcon
                       size={24}
@@ -96,20 +120,20 @@ export default async function CareersPage({
                 </li>
               ))}
             </ul>
-          ) : (
-            <div className="mt-10 rounded-2xl border border-dashed border-navy-900/10 bg-white p-10 text-center text-ink-muted">
-              <p>
-                Send oss gjerne en åpen søknad på{" "}
-                <a
-                  className="font-semibold text-navy-900 hover:text-cyan-700"
-                  href="mailto:karriere@bestteleprodukter.no"
-                >
-                  karriere@bestteleprodukter.no
-                </a>
-                .
-              </p>
-            </div>
-          )}
+          ) : null}
+
+          <div className="mt-10 rounded-2xl border border-dashed border-navy-900/10 bg-white p-8 text-center text-ink-muted">
+            <p>
+              Finner du ikke stillingen som passer? Send en åpen søknad til{" "}
+              <a
+                className="font-semibold text-navy-900 hover:text-cyan-700"
+                href="mailto:post@bestgroup.no"
+              >
+                post@bestgroup.no
+              </a>
+              .
+            </p>
+          </div>
         </Container>
       </section>
     </>

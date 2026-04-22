@@ -102,6 +102,11 @@ export function Footer() {
                   {nav("support")}
                 </Link>
               </li>
+              <li>
+                <Link href="/sikkerhet" className="hover:text-cyan-300">
+                  Sikkerhet og personvern
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="col-span-2">
