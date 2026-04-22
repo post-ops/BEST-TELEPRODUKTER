@@ -15,13 +15,14 @@ type ProductListItem = {
   heroImage?: { asset?: { _ref?: string } };
 };
 
-const FALLBACK_PRODUCTS: ProductListItem[] = [
+const FALLBACK_PRODUCTS: (ProductListItem & { fallbackImage?: string })[] = [
   {
     _id: "best-iq",
     slug: "best-iq",
     productLine: "BEST IQ",
     title: "BEST IQ",
     tagline: "Intelligent tilkallings- og kommunikasjonsplattform.",
+    fallbackImage: "/images/bestgroup/best_news_workflow.png",
   },
   {
     _id: "bestsenior",
@@ -29,6 +30,7 @@ const FALLBACK_PRODUCTS: ProductListItem[] = [
     productLine: "BESTsenior",
     title: "BESTsenior",
     tagline: "Trådløs alarmløsning for sykehjem med NFC-tilstedeværelse.",
+    fallbackImage: "/images/bestgroup/best_news_wireless_call_units.jpg",
   },
   {
     _id: "bestinfotainment",
@@ -36,6 +38,7 @@ const FALLBACK_PRODUCTS: ProductListItem[] = [
     productLine: "BESTinfotainment",
     title: "BESTinfotainment",
     tagline: "Pasientterminaler med TV, spill, internett og apper ved sengen.",
+    fallbackImage: "/images/bestgroup/best_news_medipad.png",
   },
   {
     _id: "bestproactive",
@@ -50,6 +53,7 @@ const FALLBACK_PRODUCTS: ProductListItem[] = [
     productLine: "BESTmate",
     title: "BESTmate",
     tagline: "Mobil alarmhåndtering via smarttelefon for pleiepersonell.",
+    fallbackImage: "/images/bestgroup/best_news_workflow.png",
   },
   {
     _id: "bestcritical",
@@ -64,6 +68,7 @@ const FALLBACK_PRODUCTS: ProductListItem[] = [
     productLine: "BESTaid",
     title: "BESTaid",
     tagline: "Tilkallings- og informasjonsdisplayer med tydelige statusvisninger.",
+    fallbackImage: "/images/bestgroup/best_news_keyless_access.jpg",
   },
 ];
 
@@ -124,6 +129,11 @@ export default async function ProductsPage({
                     height={400}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 33vw"
+                    fallback={
+                      "fallbackImage" in p && p.fallbackImage
+                        ? (p.fallbackImage as string)
+                        : undefined
+                    }
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
