@@ -15,10 +15,19 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
+// On Vercel, VERCEL_PROJECT_PRODUCTION_URL is set automatically; we fall back
+// to it when NEXT_PUBLIC_SITE_URL isn't configured — prevents OG/canonical
+// URLs pointing at a domain that doesn't resolve yet.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : null) ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null) ||
+  "https://bestteleprodukter.no";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://bestteleprodukter.no",
-  ),
+  metadataBase: new URL(siteUrl),
 };
 
 export default async function RootLayout({

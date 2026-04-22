@@ -1,9 +1,9 @@
 import { ImageResponse } from "next/og";
 
-// Node runtime is more robust on Vercel than edge for OG image generation,
-// and our traffic volume doesn't justify edge cold-start optimization.
+export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+export const alt = "Best Teleprodukter — Intelligent pasientvarsling";
 
 export default async function OpengraphImage() {
   return new ImageResponse(
