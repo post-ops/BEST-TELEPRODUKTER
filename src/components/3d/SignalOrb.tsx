@@ -260,7 +260,7 @@ export function SignalOrb() {
       >
         <Suspense fallback={null}>
           <Scene />
-          <EffectComposer multisampling={0} disableNormalPass>
+          <EffectComposer multisampling={0} enableNormalPass={false}>
             <Bloom
               intensity={1.4}
               luminanceThreshold={0.15}
