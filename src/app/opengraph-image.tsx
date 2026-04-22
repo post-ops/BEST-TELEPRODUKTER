@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+// Node runtime is more robust on Vercel than edge for OG image generation,
+// and our traffic volume doesn't justify edge cold-start optimization.
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
