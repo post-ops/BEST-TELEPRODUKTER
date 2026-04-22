@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — medical trust */
+  --color-navy-50: #f0f6ff;
+  --color-navy-100: #dbeafe;
+  --color-navy-200: #bfd8fa;
+  --color-navy-300: #93bbf4;
+  --color-navy-400: #6195e9;
+  --color-navy-500: #3b72d9;
+  --color-navy-600: #2757c1;
+  --color-navy-700: #1f449d;
+  --color-navy-800: #153274;
+  --color-navy-900: #0a2540;
+  --color-navy-950: #05152a;
+
+  --color-cyan-50: #ecfeff;
+  --color-cyan-100: #cffafe;
+  --color-cyan-200: #a5f3fc;
+  --color-cyan-300: #67e8f9;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #00b4d8;
+  --color-cyan-600: #0891b2;
+  --color-cyan-700: #0e7490;
+  --color-cyan-800: #155e75;
+  --color-cyan-900: #164e63;
+
+  --color-ink: #0a2540;
+  --color-ink-muted: #4a5e7a;
+  --color-paper: #ffffff;
+  --color-paper-alt: #f5f8fc;
+  --color-surface: #ffffff;
+  --color-accent: #00b4d8;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  --shadow-glow: 0 0 40px -10px rgba(0, 180, 216, 0.4);
+  --shadow-elevated: 0 20px 60px -20px rgba(10, 37, 64, 0.25);
+
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-smooth: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  ::selection {
+    background: var(--color-cyan-500);
+    color: white;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-cyan-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .container-prose {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-prose {
+      padding-inline: 2rem;
+    }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .glass {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.4) 100%
+    );
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .glass-dark {
+    background: linear-gradient(
+      135deg,
+      rgba(10, 37, 64, 0.7) 0%,
+      rgba(10, 37, 64, 0.4) 100%
+    );
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .gradient-hero {
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 30%, rgba(0, 180, 216, 0.18), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 80% 80%, rgba(59, 114, 217, 0.18), transparent 60%),
+      linear-gradient(180deg, #f5f8fc 0%, #ffffff 100%);
+  }
+
+  .gradient-dark {
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 180, 216, 0.15), transparent 70%),
+      linear-gradient(180deg, #0a2540 0%, #05152a 100%);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(10, 37, 64, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(10, 37, 64, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(0.8); opacity: 0.9; }
+    80%, 100% { transform: scale(2.2); opacity: 0; }
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 2.4s var(--ease-out-expo) infinite;
+  }
+
+  @keyframes signal-travel {
+    0% { stroke-dashoffset: 100; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { stroke-dashoffset: 0; opacity: 0; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .animate-float {
+    animation: float 6s var(--ease-in-out-smooth) infinite;
+  }
+
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s var(--ease-out-expo) both;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 50s linear infinite;
+  }
+
+  @keyframes marquee-slow {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee-slow {
+    animation: marquee-slow 90s linear infinite;
+  }
+
+  @keyframes scroll-hint {
+    0%   { top: 0; opacity: 0; }
+    40%  { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+  .animate-scroll-hint {
+    animation: scroll-hint 2.4s var(--ease-in-out-smooth) infinite;
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+  .animate-float-slow {
+    animation: float-slow 5s var(--ease-in-out-smooth) infinite;
+  }
+
+  @keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(34,211,238,0.4), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .text-stroke {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+}

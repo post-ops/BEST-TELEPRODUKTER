@@ -1,0 +1,113 @@
+{
+  "common": {
+    "skipToMain": "Hopp til hovedinnhold",
+    "menu": "Meny",
+    "close": "Lukk",
+    "learnMore": "Les mer",
+    "contactUs": "Kontakt oss",
+    "readCase": "Les case-studie",
+    "viewAll": "Se alle",
+    "getStarted": "Kom i gang",
+    "language": "Språk"
+  },
+  "nav": {
+    "home": "Forside",
+    "about": "Om oss",
+    "products": "Produkter",
+    "solutions": "Løsninger",
+    "references": "Referanser",
+    "support": "Support",
+    "careers": "Karriere",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "eyebrow": "Markedsleder i Skandinavia siden 1979",
+    "title": "Pasientvarsling som redder tid og liv",
+    "subtitle": "BEST utvikler intelligente tilkallings- og alarmsystemer for sykehus, psykiatri og omsorg — designet sammen med helsepersonell.",
+    "ctaPrimary": "Utforsk produkter",
+    "ctaSecondary": "Se referanser",
+    "playDemo": "Spill av demo-sekvens"
+  },
+  "trustBar": {
+    "title": "Tillit fra ledende helseinstitusjoner i Norden"
+  },
+  "productLines": {
+    "title": "Et komplett økosystem for helsekommunikasjon",
+    "subtitle": "Fra pasientens seng til sykepleiers smarttelefon — alt fungerer sømløst sammen."
+  },
+  "solutions": {
+    "title": "Løsninger tilpasset din institusjon",
+    "hospital": "Sykehus og psykiatri",
+    "healthInstitution": "Helseinstitusjoner",
+    "nursingHome": "Sykehjem og omsorgsboliger",
+    "hospitalDesc": "Skalerbare tilkallingssystemer for alt fra intensivavdelinger til lukkede psykiatriske poster.",
+    "healthInstitutionDesc": "Brukervennlige systemer med overfallsalarm, nødkall og mobil alarmhåndtering.",
+    "nursingHomeDesc": "Trådløse alarmsystemer med NFC-tilstedeværelse og nøkkelfri romtilgang."
+  },
+  "caseStudies": {
+    "title": "Referanseprosjekter",
+    "subtitle": "Norden største sykehus har valgt BEST."
+  },
+  "recommender": {
+    "title": "Finn riktig løsning for din institusjon",
+    "subtitle": "Svar på tre spørsmål — vi anbefaler produktene som passer.",
+    "step1": "Hvilken type institusjon?",
+    "step2": "Hvor mange sengeplasser?",
+    "step3": "Viktigste funksjon?",
+    "hospital": "Sykehus",
+    "psychiatric": "Psykiatri",
+    "nursingHome": "Sykehjem",
+    "assistedLiving": "Bofellesskap",
+    "small": "< 50",
+    "medium": "50-200",
+    "large": "> 200",
+    "integration": "Integrasjon med EPJ",
+    "mobility": "Mobil alarmhåndtering",
+    "safety": "Overfallsalarm",
+    "entertainment": "Pasientunderholdning",
+    "yourRecommendation": "Din anbefaling",
+    "requestDemo": "Be om demo",
+    "startOver": "Start på nytt"
+  },
+  "contactCta": {
+    "title": "Klar for et løft i pasientvarsling?",
+    "subtitle": "Vi har ekspertise og et produktspekter som dekker alt fra små bofellesskap til universitetssykehus.",
+    "cta": "Kontakt oss i dag"
+  },
+  "footer": {
+    "address": "Besøksadresse",
+    "postalAddress": "Postadresse",
+    "phone": "Telefon",
+    "email": "E-post",
+    "orgNr": "Org.nr",
+    "offices": "Kontorer",
+    "larvik": "Larvik",
+    "hovik": "Høvik",
+    "trondheim": "Trondheim",
+    "parent": "Del av Best Group",
+    "copyright": "© {year} Best Teleprodukter AS. Alle rettigheter reservert."
+  },
+  "contactForm": {
+    "title": "Kontakt oss",
+    "subtitle": "Vi svarer normalt innen én arbeidsdag.",
+    "name": "Navn",
+    "email": "E-post",
+    "phone": "Telefon (valgfritt)",
+    "company": "Virksomhet",
+    "segment": "Type institusjon",
+    "segmentPlaceholder": "Velg …",
+    "message": "Hva kan vi hjelpe med?",
+    "consent": "Jeg samtykker til at BEST lagrer mine opplysninger for å besvare henvendelsen.",
+    "submit": "Send henvendelse",
+    "submitting": "Sender …",
+    "success": "Takk! Vi tar kontakt snart.",
+    "error": "Noe gikk galt. Prøv igjen eller ring oss direkte.",
+    "required": "Dette feltet er påkrevd",
+    "invalidEmail": "Ugyldig e-postadresse",
+    "consentRequired": "Du må samtykke for å sende"
+  },
+  "meta": {
+    "title": "Best Teleprodukter — Intelligent pasientvarsling",
+    "description": "Skandinavisk markedsleder på nurse call, pasientvarsling og overfallsalarm for sykehus, psykiatri og sykehjem. Løsninger fra BEST siden 1979."
+  }
+}

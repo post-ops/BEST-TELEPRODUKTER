@@ -1,0 +1,113 @@
+{
+  "common": {
+    "skipToMain": "Skip to main content",
+    "menu": "Menu",
+    "close": "Close",
+    "learnMore": "Learn more",
+    "contactUs": "Contact us",
+    "readCase": "Read case study",
+    "viewAll": "View all",
+    "getStarted": "Get started",
+    "language": "Language"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "solutions": "Solutions",
+    "references": "References",
+    "support": "Support",
+    "careers": "Careers",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Scandinavian market leader since 1979",
+    "title": "Nurse call systems that save time and lives",
+    "subtitle": "BEST develops intelligent call and alarm systems for hospitals, psychiatric wards and elderly care — designed side-by-side with healthcare professionals.",
+    "ctaPrimary": "Explore products",
+    "ctaSecondary": "View references",
+    "playDemo": "Play demo sequence"
+  },
+  "trustBar": {
+    "title": "Trusted by leading healthcare institutions across the Nordics"
+  },
+  "productLines": {
+    "title": "A complete ecosystem for healthcare communication",
+    "subtitle": "From the patient's bedside to the nurse's smartphone — everything works seamlessly together."
+  },
+  "solutions": {
+    "title": "Solutions tailored to your institution",
+    "hospital": "Hospitals & Psychiatry",
+    "healthInstitution": "Health institutions",
+    "nursingHome": "Nursing homes & assisted living",
+    "hospitalDesc": "Scalable call systems for everything from ICUs to closed psychiatric wards.",
+    "healthInstitutionDesc": "User-friendly systems with assault alarm, emergency call and mobile alert handling.",
+    "nursingHomeDesc": "Wireless alarm systems with NFC presence verification and keyless room access."
+  },
+  "caseStudies": {
+    "title": "Reference projects",
+    "subtitle": "Scandinavia's largest hospitals have chosen BEST."
+  },
+  "recommender": {
+    "title": "Find the right solution for your institution",
+    "subtitle": "Answer three questions — we'll recommend a fitting product bundle.",
+    "step1": "What type of institution?",
+    "step2": "How many beds?",
+    "step3": "Most important feature?",
+    "hospital": "Hospital",
+    "psychiatric": "Psychiatric",
+    "nursingHome": "Nursing home",
+    "assistedLiving": "Assisted living",
+    "small": "< 50",
+    "medium": "50-200",
+    "large": "> 200",
+    "integration": "EHR integration",
+    "mobility": "Mobile alarm handling",
+    "safety": "Assault alarm",
+    "entertainment": "Patient entertainment",
+    "yourRecommendation": "Your recommendation",
+    "requestDemo": "Request a demo",
+    "startOver": "Start over"
+  },
+  "contactCta": {
+    "title": "Ready to upgrade your nurse call?",
+    "subtitle": "We have the expertise and product range to cover everything from small assisted-living units to university hospitals.",
+    "cta": "Get in touch today"
+  },
+  "footer": {
+    "address": "Visiting address",
+    "postalAddress": "Postal address",
+    "phone": "Phone",
+    "email": "Email",
+    "orgNr": "Org. no",
+    "offices": "Offices",
+    "larvik": "Larvik",
+    "hovik": "Høvik",
+    "trondheim": "Trondheim",
+    "parent": "Part of Best Group",
+    "copyright": "© {year} Best Teleprodukter AS. All rights reserved."
+  },
+  "contactForm": {
+    "title": "Contact us",
+    "subtitle": "We usually respond within one business day.",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "company": "Organization",
+    "segment": "Type of institution",
+    "segmentPlaceholder": "Select …",
+    "message": "How can we help?",
+    "consent": "I consent to BEST storing my information to respond to this inquiry.",
+    "submit": "Send inquiry",
+    "submitting": "Sending …",
+    "success": "Thank you! We'll be in touch shortly.",
+    "error": "Something went wrong. Please try again or call us directly.",
+    "required": "This field is required",
+    "invalidEmail": "Invalid email address",
+    "consentRequired": "You must consent to send"
+  },
+  "meta": {
+    "title": "Best Teleprodukter — Intelligent nurse call",
+    "description": "Scandinavian market leader in nurse call, patient alerting and assault alarms for hospitals, psychiatric wards and nursing homes. Solutions from BEST since 1979."
+  }
+}

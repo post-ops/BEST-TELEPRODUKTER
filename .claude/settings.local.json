@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.larviknf.no)",
+      "WebSearch",
+      "WebFetch(domain:www.bestgroup.no)"
+    ]
+  }
+}
